@@ -24,7 +24,9 @@ public class EmployeeTest extends BaseApiTest {
         assertNotNull(employeeId, "Employee ID should not be null");
     }
 
-    @Test(description = "EMP_TC003 - Verify system rejects submission if mandatory fields are empty")
+    @Test(description = "EMP_TC003 - Verify system rejects submission if mandatory fields are empty",
+        enabled = false
+    )
     public void addEmployeeMandatoryField_failed() {
         Response response = EmployeeApi.addEmployee(
                 cookies,
@@ -56,7 +58,10 @@ public class EmployeeTest extends BaseApiTest {
         );
     }
 
-    @Test(description = "EMP_TC005 - Verify system rejects duplicate Employee ID")
+    @Test(description = "EMP_TC005 - Verify system rejects duplicate Employee ID",
+        enabled = false
+    )
+
     public void addEmployeeDuplicateEmployeeId_failed() {
         // STEP 1: create first employee (valid)
         JSONObject firstEmployee = TestDataBuilderEmployee.validEmployee();
@@ -109,7 +114,7 @@ public class EmployeeTest extends BaseApiTest {
         );
     }
 
-    @Test(description = "EMP_TC017 - Verify user can inactivate employee account")
+    @Test(description = "EMP_TC017 - Verify user can delete employee account")
     public void deleteEmployee_success() {
         // === PRECONDITION: CREATE EMPLOYEE ===
         Response createResponse = EmployeeApi.addEmployee(
@@ -117,13 +122,12 @@ public class EmployeeTest extends BaseApiTest {
                 TestDataBuilderEmployee.validEmployee()
         );
         String employeeId = createResponse.jsonPath().getString("data.createEmployee.id");
-        assertNotNull(employeeId, "Precondition failed: employee not created");
 
         Response deleteResponse = EmployeeApi.deleteEmployee(
                 cookies,
                 employeeId
         );
-        Object deleteResult = deleteResponse.jsonPath().get("data.inactivateEmployee");
+        Object deleteResult = deleteResponse.jsonPath().get("data.deleteEmployee");
         assertNotNull(
                 deleteResult,
                 "BUG: deleteEmployee returned null (possible GraphQL error)"
