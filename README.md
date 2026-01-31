@@ -1,40 +1,35 @@
-# Web Automation Testing – Selenium (Java)
+# API Automation Testing – GraphQL
 
-This repository contains web automation tests built using **Selenium WebDriver with Java**.  
-The automation focuses on validating critical user flows and is structured using the **Page Object Model (POM)** to ensure maintainability and scalability.
+This repository contains API automation tests for a **GraphQL service** built using **Java**.  
+The tests focus on validating GraphQL queries and mutations, as well as verifying response data and error handling for regression purposes.
+
+---
+
+## API Under Test
+
+**API Type**  
+GraphQL
+
+**Endpoint**  
+https://lmsb2b.do.dibimbing.id/graphql
 
 ---
 
 ## Automation Scope
 
-- Automation testing for critical business flows
-- Implementation of Page Object Model (POM)
-- Designed for regression testing and CI/CD execution
-
----
-
-## Web Application Under Test
-
-**Application Name**  
-LMS B2B Dibimbing Website
-
-**Login URL**  
-https://lms-b2b.do.dibimbing.id/dibimbingqa/login
-
-**Covered Features**
-- Training module
-- Employee module
-
-Only the Training and Employee features are included in this automation project.
+- GraphQL API automation testing
+- Validation of queries and mutations
+- Response data and error handling verification
+- Regression-ready test scenarios
 
 ---
 
 ## Tech Stack
 
 - Java
-- Selenium WebDriver
+- GraphQL API Testing
 - Maven
-- Page Object Model (POM)
+- Allure Report
 - GitHub Actions (CI/CD)
 
 ---
@@ -44,21 +39,16 @@ Only the Training and Employee features are included in this automation project.
 src
 └── test
 └── java
-├── pages # Page Object classes
-├── tests # Test scenarios
-└── utils # WebDriver and helper utilities
+├── api # GraphQL API test cases
+└── utils # Helper and configuration classes
 
 
 ---
 
-## How to Run the Tests
+## Running the Tests
 
-1. Clone the repository
-   ```bash
-   [git clone https://github.com/your-username/api-automation-graphql.git](https://github.com/floseptysia-hue/api-automation-graphql/edit/main/README.md)
-2. Navigate to the project directory
-   cd api-automation-graphql
-3. Execute tests using Maven
-   mvn clean test
-
-
+### Run all API tests
+```bash
+mvn clean test
+mvn allure:report
+mvn allure:serve
