@@ -55,7 +55,7 @@ src
 
 1. Clone the repository
    ```bash
-   git clone https://github.com/your-username/api-automation-graphql.git
+   [git clone https://github.com/your-username/api-automation-graphql.git](https://github.com/floseptysia-hue/api-automation-graphql/edit/main/README.md)
 2. Navigate to the project directory
    cd api-automation-graphql
 3. Execute tests using Maven
