@@ -16,6 +16,19 @@ public class TestDataBuilderTraining {
         return new JSONObject(baseValidTrainig().toString());
     }
 
+    public static JSONObject programWithEmptyMandatoryField() {
+        JSONObject data = baseValidTrainig();
+        data.put("title", "");
+        return data;
+    }
+
+    public static JSONObject updateTraining() {
+        JSONObject data = baseValidTrainig();
+        data.put("title", "UPDATE-TRAINING-" + System.currentTimeMillis());
+        data.put("description", "update program");
+        return data;
+    }
+
     private static JSONObject baseValidChapter(String programId) {
         JSONObject input = new JSONObject();
         input.put("title", "CHAPTER-FLO-" + System.currentTimeMillis());

@@ -66,4 +66,36 @@ public class TrainingApi {
                 .extract()
                 .response();
     }
+
+    public static Response updateTraining(
+            Map<String, String> cookies,
+            String programId,
+            JSONObject input
+    ) {
+        String query = """
+        mutation updateProgram($id: String!, $input: ProgramInput!) {
+              updateProgram(id: $id, input: $input) {
+                id
+                __typename
+              }
+            }
+        """;
+
+        JSONObject variables = new JSONObject();
+        variables.put("id", programId);
+        variables.put("input", input);
+
+        JSONObject body = GraphQLRequest.build(query, variables);
+
+        return given()
+                .cookies(cookies)
+                .contentType("application/json")
+                .body(body.toString())
+                .when()
+                .post("/graphql")
+                .then()
+                .log().all()
+                .extract()
+                .response();
+    }
 }

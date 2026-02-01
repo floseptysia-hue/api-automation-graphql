@@ -28,9 +28,11 @@ public class AuthHelper {
             }
         """;
 
+        String email = EnvConfig.get("AUTH_EMAIL");
+        String password = EnvConfig.get("AUTH_PASSWORD");
         JSONObject variables = new JSONObject();
-        variables.put("usernameOrEmail", "arwendymelyn@dibimbing.id");
-        variables.put("password", "s2et9bh6l");
+        variables.put("usernameOrEmail", email);
+        variables.put("password", password);
         variables.put("companyId", "811637b1-9989-4d45-a9f5-220c5f2354f7");
 
         JSONObject body = new JSONObject();

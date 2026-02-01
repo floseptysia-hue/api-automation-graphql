@@ -23,6 +23,16 @@
 
     <dependencies>
         <dependency>
+            <groupId>io.github.cdimascio</groupId>
+            <artifactId>dotenv-java</artifactId>
+            <version>3.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-testng</artifactId>
+            <version>2.25.0</version>
+        </dependency>
+        <dependency>
             <groupId>io.rest-assured</groupId>
             <artifactId>rest-assured</artifactId>
             <version>${restassured.version}</version>
@@ -65,6 +75,11 @@
 <!--                    <suiteXmlFiles>-->
 <!--                        <suiteXmlFile>testng.xml</suiteXmlFile>-->
 <!--                    </suiteXmlFiles>-->
+                    <systemPropertyVariables>
+                        <allure.results.directory>
+                            target/allure-results
+                        </allure.results.directory>
+                    </systemPropertyVariables>
                 </configuration>
             </plugin>
 
