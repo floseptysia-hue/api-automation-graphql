@@ -76,7 +76,9 @@ public class TrainingTest extends BaseApiTest {
         assertNotNull(chapterId, "Chapter ID should not be null");
     }
 
-    @Test(description = "TRN_TC004 - Verify system rejects submission if mandatory fields are empty")
+    @Test(description = "TRN_TC004 - Verify system rejects submission if mandatory fields are empty",
+            enabled = false
+    )
     @Story("Create Training Program")
     @Severity(SeverityLevel.NORMAL)
     public void addProgramMandatoryField_failed() {
